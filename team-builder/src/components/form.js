@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 function Form() {
     const [member,setMember] = useState({name: '', email: '', role: ''})
@@ -9,29 +9,39 @@ function Form() {
 
       const handleSubmit = event => {
         event.preventDefault();
-        console.log(user.name);
-        console.log(user.password);
+        console.log(member.name);
+        console.log(member.email);
+        console.log(member.role)
       };
     
       return (
         <div className="Form">
-          {console.log(user)}
+          {console.log(member)}
           <form onSubmit={event => handleSubmit(event)}>
             <label>
-              Username:
+              Name:
               <input
                 type="text"
-                name="username"
-                value={user.username}
+                name="name"
+                value={member.name}
                 onChange={event => handleChange(event)}
               />
             </label>
             <label>
-              Password:
+              E-Mail:
               <input
                 type="text"
-                name="password"
-                value={user.password}
+                name="email"
+                value={member.email}
+                onChange={event => handleChange(event)}
+              />
+            </label>
+            <label>
+              Role:
+              <input
+                type="text"
+                name="role"
+                value={member.role}
                 onChange={event => handleChange(event)}
               />
             </label>
